@@ -31,7 +31,7 @@ const CONFIG = {
   creatorOpeningBuy: '',
 
   // Handles only, no URL and no @. Empty hides the link.
-  xHandle: '',
+  xHandle: 'hoodietoken',
   telegramHandle: ''
 };
 
