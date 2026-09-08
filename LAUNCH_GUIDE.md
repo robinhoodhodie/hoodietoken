@@ -10,20 +10,65 @@ sonrası siteyi canlı token'a bağlamak için yapılacaklar.
 
 ## 1. Pons Launchpad Form Verileri
 
-`https://www.ponsfamily.com/launchpad/create` sayfasındaki alanlar:
+Aşağıdaki alan listesi `https://www.ponsfamily.com/launchpad/create` sayfasından
+**8 Eylül 2026'da doğrudan okunarak doğrulandı** (cüzdan bağlanmadan, salt okunur).
 
 | Form Alanı | Değer |
 | :--- | :--- |
+| **Launchpad sürümü** | Sayfanın üstünde `v2` / `v1` sekmesi var; varsayılan `v2` |
 | **Name** | `Hoodie` |
 | **Ticker** | `HOODIE` |
 | **Description** | `Independent community meme token on Robinhood Chain. Not affiliated with Robinhood Markets, Inc. Fair launch on Pons, no pre-sale. High risk — you can lose everything.` |
-| **Token Image** | `assets/logo.jpg` |
-| **X Profile** | Açacağın hesabın kullanıcı adı (sistem `x.com/` önekini ekler) |
+| **Token image** | `assets/logo.jpg` (dosya seçici) |
+| **X profile** | Açacağın hesabın kullanıcı adı (sistem `x.com/` önekini ekler) |
 | **Telegram** | Açacağın kanalın adı (sistem `t.me/` önekini ekler) |
-| **Paired Asset** | `ETH` |
-| **Creator Tax** | `%2.0` |
-| **Creator Wallet** | Boş bırak — bağlı cüzdanın otomatik yaratıcı cüzdanı olur |
-| **Developer Buy** | Senin kararın — aşağıdaki nota bak |
+| **Paired asset** | `ETH` |
+| **Developer buy** | Senin kararın — aşağıdaki nota bak |
+| **Creator tax** *(Advanced)* | `2` |
+| **Holder fee sharing** *(Advanced)* | Kapalı bırak (varsayılan: ücretler yaratıcı cüzdanına) |
+| **Creator wallet** *(Advanced)* | Boş bırak — bağlı cüzdanın otomatik yaratıcı cüzdanı olur |
+| **Snipe tax exemptions** *(Advanced)* | **Boş bırak** — aşağıdaki nota bak |
+| **Launch fee** | `0.0005 ETH` (sayfada yazıyor) + ağ gazı |
+
+### Sayfadan doğrulanan / doğrulanamayan noktalar
+
+- **Launch fee 0.0005 ETH** doğru.
+- **Likidite "Locked"** yazıyor — sitedeki LP kilidi anlatımı bu bilgiye dayanıyor.
+- **Creator tax üst sınırı %10.** Sayfa şunu gösteriyor:
+  *"Traders pay X% in total, up to 10% of it yours."* Yani **trader'ın ödediği toplam,
+  senin creator tax'inden fazladır** — Pons'un kendi işlem ücreti üstüne biniyor. Formu
+  doldururken bu satırdaki gerçek toplam yüzdeyi oku ve sitedeki `creatorTaxPercent`
+  ile uyumlu olduğundan emin ol.
+- **Graduation eşiği okunamadı.** Sayfa "Reading the graduation threshold." diyordu.
+  Sitede bilinçli olarak hiçbir eşik sayısı yazmıyoruz; formu doldururken bu satırda
+  çıkan gerçek değeri not et.
+- **Toplam arz sayısı formda görünmüyor.** Pons "fixed-supply" diyor ama rakamı
+  lansmandan sonra sözleşmeden doğrula.
+
+### ⚠️ Sitenin kendi uyarısı: backend bakımda
+
+Create sayfasının tepesinde şu duyuru vardı:
+
+> *"Degraded performance — We are upgrading the backend ahead of a new rollout.
+> Launches and market data may load slowly or read stale."*
+
+Yani Pons şu anda lansmanların ve piyasa verisinin yavaş çalışabileceğini / eski veri
+gösterebileceğini kendisi söylüyor. **Bu duyuru kalkana kadar lansmanı bekletmek
+mantıklı** — 0.0005 ETH + gaz ödeyip yarım yamalak oluşmuş bir token ile uğraşmak
+istemezsin.
+
+### Snipe tax exemptions hakkında
+
+Bu alan, belirli cüzdanları snipe vergisinden muaf tutmanı sağlıyor. **Boş bırak.**
+Kendi cüzdanını veya arkadaşlarının cüzdanını muaf listeye koymak, diğer alıcılara göre
+gizli bir ayrıcalık yaratır; bunu açıklamadan yapmak sitedeki "everyone buys from the
+same curve at the same price" ifadesini yalan hale getirir.
+
+### Lansmandan önce oku
+
+Pons'un [Terms of Use](https://www.ponsfamily.com/terms) sayfasını lansmandan önce
+oku — özellikle yasaklı içerik ve marka/isim maddelerini. Platformu işleten tüzel kişi
+Pons Labs, LLC.
 
 ### Description hakkında
 
