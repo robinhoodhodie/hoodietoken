@@ -103,7 +103,7 @@ Statik site, build adımı yok. Üç dosya + `assets/` klasörü yeterli.
 GitHub Pages için:
 
 ```bash
-cd /c/Users/Monster/Desktop/hoodie-token-website && git init && git add -A && git commit -m "Hoodie site"
+git init && git add -A && git commit -m "Hoodie site"
 ```
 
 Sonra GitHub'da boş bir repo açıp push et, repo ayarlarından Pages'i `main` / `root` olarak

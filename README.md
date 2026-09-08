@@ -6,7 +6,7 @@ tanıtım sitesi. Build adımı yok; `index.html` doğrudan açılır.
 ## Hızlı başlangıç
 
 ```bash
-cd /c/Users/Monster/Desktop/hoodie-token-website && python -m http.server 8777
+python -m http.server 8777
 ```
 
 Sonra `http://127.0.0.1:8777` adresini aç. (Dosyayı çift tıklayıp `file://` ile de açabilirsin,
