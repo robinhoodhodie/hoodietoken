@@ -32,10 +32,9 @@ const CONFIG = {
 
   // Handles only, no URL and no @. Empty hides the link.
   xHandle: 'hoodietoken',
-  // Telegram: kanal su an private (yalnizca davet linki var) ve @hoodietoken
-  // herkese acik kullanici adi BASKASINA ait ("Hood airdrop army"). Kanal
-  // public yapilip bos bir kullanici adi alinana kadar bos kalacak.
-  telegramHandle: ''
+  // NOT: Telegram'da @hoodietoken BASKASINA ait ("Hood airdrop army").
+  // Bu projenin kanali @hoodie_token - alt cizgili olan. Karistirma.
+  telegramHandle: 'hoodie_token'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
