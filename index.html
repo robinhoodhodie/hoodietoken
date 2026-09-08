@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hoodie ($HOODIE) — Independent Meme Token on Robinhood Chain</title>
+  <meta name="description" content="$HOODIE is an independent, community-made meme token launching on the Pons Launchpad on Robinhood Chain. Not affiliated with Robinhood Markets, Inc. High risk — you can lose everything." />
+
+  <!-- OpenGraph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hoodie ($HOODIE) — Independent Meme Token on Robinhood Chain" />
+  <meta property="og:description" content="A community meme token fair-launched on Pons Launchpad. Independent project, not affiliated with Robinhood Markets, Inc. Meme tokens are high risk." />
+  <meta property="og:image" content="assets/logo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/logo.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Ambient background glow effects -->
+  <div class="ambient-glow glow-top"></div>
+  <div class="ambient-glow glow-middle"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Affiliation notice — always first thing in the DOM -->
+  <div class="affiliation-bar">
+    Independent community project. <strong>Not affiliated with, endorsed by, or connected to Robinhood Markets, Inc.</strong>
+  </div>
+
+  <!-- Ticker Bar (static facts only) -->
+  <div class="live-ticker-wrap">
+    <div class="live-ticker-track">
+      <span class="ticker-pill">🦊 <strong>$HOODIE</strong> — COMMUNITY MEME TOKEN</span>
+      <span class="ticker-pill">🏹 <strong>NETWORK:</strong> ROBINHOOD CHAIN (GAS: ETH)</span>
+      <span class="ticker-pill">🚀 <strong>LAUNCHPAD:</strong> PONS — BONDING CURVE, NO PRE-SALE</span>
+      <span class="ticker-pill">⚠️ <strong>HIGH RISK:</strong> YOU CAN LOSE 100% OF WHAT YOU SPEND</span>
+      <span class="ticker-pill">⚡ <strong>CREATOR FEE:</strong> <span data-cfg="tax">2.0%</span> ON EACH TRADE</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="ticker-pill">🦊 <strong>$HOODIE</strong> — COMMUNITY MEME TOKEN</span>
+      <span class="ticker-pill">🏹 <strong>NETWORK:</strong> ROBINHOOD CHAIN (GAS: ETH)</span>
+      <span class="ticker-pill">🚀 <strong>LAUNCHPAD:</strong> PONS — BONDING CURVE, NO PRE-SALE</span>
+      <span class="ticker-pill">⚠️ <strong>HIGH RISK:</strong> YOU CAN LOSE 100% OF WHAT YOU SPEND</span>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#" class="brand-logo">
+        <img src="assets/logo.jpg" alt="Hoodie Logo" class="brand-avatar" />
+        <span class="brand-text">HOODIE <span class="badge-chain">RH CHAIN</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#bonding-curve">How Pons Works</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#calculator">Math</a>
+        <a href="#how-to-buy">How to Buy</a>
+        <a href="#risks">Risks</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://www.ponsfamily.com/launchpad" target="_blank" rel="noopener noreferrer" class="btn btn-primary nav-buy-btn" data-cfg="buyLink">
+          <span data-cfg="buyLabel">View on Pons</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span>Independent community token · Not a Robinhood product</span>
+        </div>
+        <h1 class="hero-title">
+          A Fox, A Hoodie,<br />
+          <span class="gradient-text">And A Bonding Curve.</span>
+        </h1>
+        <p class="hero-subtitle">
+          <strong>$HOODIE</strong> is a meme token — a community mascot for Robinhood Chain, made by fans, owned by nobody in particular.
+          It launches on the <a href="https://www.ponsfamily.com/launchpad" target="_blank" rel="noopener noreferrer" class="text-neon underline">Pons Launchpad</a>
+          with no pre-sale and no team allocation. It has no product, no revenue and no roadmap beyond the joke.
+          <strong class="text-gold">Treat any money you put in as money you are prepared to lose entirely.</strong>
+        </p>
+
+        <!-- Contract Bar -->
+        <div class="contract-card">
+          <div class="contract-info">
+            <span class="contract-label">CONTRACT ADDRESS:</span>
+            <span class="contract-address" id="contractAddress">Not deployed yet</span>
+          </div>
+          <button class="copy-btn" id="copyBtn" title="Copy Contract Address">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span id="copyText">Copy</span>
+          </button>
+        </div>
+        <p class="contract-warning">
+          Always verify this address against the official Pons token page before trading. Copycat tokens are common.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="https://www.ponsfamily.com/launchpad" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large" data-cfg="buyLink">
+            <span data-cfg="buyLabel">View on Pons</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#risks" class="btn btn-secondary btn-large">
+            <span>Read the risks first</span>
+          </a>
+        </div>
+
+        <!-- Quick facts banner -->
+        <div class="hero-stats">
+          <div class="stat-box">
+            <span class="stat-value" data-cfg="supply">TBD</span>
+            <span class="stat-name">Total Supply (set at launch)</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-box">
+            <span class="stat-value" data-cfg="tax">2.0%</span>
+            <span class="stat-name">Creator Fee Per Trade</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-box">
+            <span class="stat-value">0%</span>
+            <span class="stat-name">Pre-Sale / Team Allocation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual / Mascot Card -->
+      <div class="hero-visual">
+        <div class="mascot-card-outer">
+          <div class="mascot-card">
+            <div class="card-glow"></div>
+            <div class="mascot-image-wrapper">
+              <img src="assets/logo.jpg" alt="Hoodie the cyber-fox mascot" class="mascot-img" />
+              <div class="mascot-tag">
+                <span class="tag-status"></span>
+                <span data-cfg="statusTag">PRE-LAUNCH</span>
+              </div>
+            </div>
+            <div class="mascot-details">
+              <div class="detail-row">
+                <span class="token-name">Hoodie</span>
+                <span class="token-ticker">$HOODIE</span>
+              </div>
+              <div class="live-data-note">
+                <p>Price, market cap and curve progress are <strong>not shown here</strong>. This site carries no live market data.</p>
+                <a href="https://www.ponsfamily.com/launchpad" target="_blank" rel="noopener noreferrer" class="text-neon underline" data-cfg="buyLink">Check the real numbers on Pons →</a>
+              </div>
+              <div class="card-badges">
+                <span class="mini-badge">🏹 No Pre-Mine</span>
+                <span class="mini-badge">🎭 Meme, Not A Business</span>
+                <span class="mini-badge">⚠️ High Risk</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prominent Risk Banner -->
+  <section class="risk-banner-section">
+    <div class="container">
+      <div class="risk-banner">
+        <span class="risk-icon">⚠️</span>
+        <p>
+          <strong>$HOODIE is not an investment.</strong> It is a meme with a price attached. There is no company, no product,
+          no revenue and no obligation to anyone. Most tokens launched this way end up worth close to nothing.
+          Nothing on this site is financial advice. <a href="#risks" class="text-gold underline">Full risk disclosure →</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How Pons Works -->
+  <section class="bonding-section" id="bonding-curve">
+    <div class="container">
+      <div class="bonding-card glass-panel">
+        <div class="bonding-header">
+          <div>
+            <span class="section-tag">PONS LAUNCHPAD MECHANICS</span>
+            <h2 class="bonding-title">How A Pons Launch Actually Works</h2>
+            <p class="bonding-desc">
+              Pons is a bonding-curve launchpad. Buyers trade against a formula rather than an order book: each purchase moves the
+              price up along the curve, each sale moves it back down. If enough is bought to reach the platform's graduation
+              threshold, Pons migrates the accumulated liquidity into a Uniswap V3 pool and locks that LP position.
+              <strong>If the threshold is never reached, the token simply stays on the curve.</strong>
+            </p>
+          </div>
+          <div class="target-box">
+            <span class="target-title">If Graduation Happens</span>
+            <span class="target-val">LP Locked</span>
+          </div>
+        </div>
+
+        <div class="bonding-gauge-wrap">
+          <p class="gauge-note">The four stages of a Pons launch. This describes the mechanism — it is not a claim about where $HOODIE currently stands.</p>
+          <div class="gauge-milestones static-milestones">
+            <div class="milestone">
+              <span class="m-point"></span>
+              <span class="m-title">1 · Creation</span>
+              <span class="m-sub">Token deployed, curve opens to everyone at the same price</span>
+            </div>
+            <div class="milestone">
+              <span class="m-point"></span>
+              <span class="m-title">2 · Open Trading</span>
+              <span class="m-sub">Anyone can buy or sell against the curve at any moment</span>
+            </div>
+            <div class="milestone">
+              <span class="m-point"></span>
+              <span class="m-title">3 · Graduation Threshold</span>
+              <span class="m-sub">Reached only if enough net buying occurs — it may never happen</span>
+            </div>
+            <div class="milestone">
+              <span class="m-point"></span>
+              <span class="m-title">4 · Uniswap V3 + LP Lock</span>
+              <span class="m-sub">Liquidity migrates and the LP position is locked by the protocol</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What This Is -->
+  <section class="features-section" id="about">
+    <div class="container">
+      <div class="section-badge-center">
+        <span>WHAT THIS ACTUALLY IS</span>
+      </div>
+      <h2 class="section-title text-center">Hoodie, Explained Honestly</h2>
+      <p class="section-subtitle text-center">Four things worth knowing before you decide anything.</p>
+
+      <div class="features-grid">
+        <div class="feature-card glass-panel">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="feature-title">There Is A Creator Fee</h3>
+          <p class="feature-copy">
+            A <strong data-cfg="tax">2.0%</strong> creator fee is charged on trades and goes to the token creator's wallet.
+            That fee is paid by the people trading. We say so up front because it is the main way the creator makes money
+            from this token, and you should factor it into anything you do.
+          </p>
+        </div>
+
+        <div class="feature-card glass-panel">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="feature-title">Fair Launch, No Reserved Supply</h3>
+          <p class="feature-copy">
+            There is no pre-sale, no team allocation and no vesting cliff. Everyone — including the creator — buys from the
+            same curve at the same price. The creator may make an opening buy like any other participant; if so, those tokens
+            can be sold like anyone else's.
+          </p>
+        </div>
+
+        <div class="feature-card glass-panel">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h3 class="feature-title">LP Lock Is Not Total Safety</h3>
+          <p class="feature-copy">
+            On graduation, Pons locks the Uniswap V3 LP position, which means that specific pool cannot be withdrawn by the
+            creator. It does <strong>not</strong> mean the price is protected. Any holder — creator included — can still sell
+            their own tokens at any time, and the price can fall to near zero.
+          </p>
+        </div>
+
+        <div class="feature-card glass-panel">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h3 class="feature-title">A Nod, Not An Endorsement</h3>
+          <p class="feature-copy">
+            The name and the fox riff on the folk tale of Robin Hood and on retail-trader culture. $HOODIE runs on
+            Robinhood Chain because that is a public network anyone can deploy to. It is <strong>not</strong> made, backed,
+            reviewed or endorsed by Robinhood Markets, Inc.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Market Cap Arithmetic (not a forecast) -->
+  <section class="calculator-section" id="calculator">
+    <div class="container">
+      <div class="calc-wrapper glass-panel">
+        <div class="calc-header">
+          <span class="section-tag">ARITHMETIC, NOT A FORECAST</span>
+          <h2 class="section-title">Market Cap → Token Price</h2>
+          <p class="calc-desc">
+            A market cap is just price × supply. This tool does that one division, so you can read a market-cap number and
+            see what it implies about the price of a single token. <strong class="text-gold">It is not a prediction and not a target.</strong>
+            Picking a number here does not make it any more likely.
+          </p>
+        </div>
+
+        <div class="calc-grid">
+          <div class="calc-input-panel">
+            <label class="calc-label" for="supplyInput">Total Supply (set by Pons at launch):</label>
+            <div class="input-with-symbol">
+              <input type="number" id="supplyInput" value="1000000000" min="1" step="1000000" />
+              <span class="input-symbol">TOKENS</span>
+            </div>
+
+            <label class="calc-label">Hypothetical Market Cap:</label>
+            <div class="milestone-buttons">
+              <button class="m-btn active" data-mcap="50000">$50K</button>
+              <button class="m-btn" data-mcap="250000">$250K</button>
+              <button class="m-btn" data-mcap="1000000">$1M</button>
+              <button class="m-btn" data-mcap="5000000">$5M</button>
+            </div>
+
+            <div class="calc-range-wrapper">
+              <div class="range-labels">
+                <span>Custom Value:</span>
+                <span id="customMcapVal" class="text-gold">$50,000</span>
+              </div>
+              <input type="range" id="mcapRange" min="10000" max="25000000" step="10000" value="50000" />
+            </div>
+          </div>
+
+          <div class="calc-result-panel">
+            <div class="result-box highlight">
+              <span class="res-title">Implied price per token</span>
+              <span class="res-value text-neon" id="impliedPrice">$0.00005000</span>
+            </div>
+            <div class="result-box">
+              <span class="res-title">What 1,000,000 tokens would be worth at that cap</span>
+              <span class="res-value" id="valuePerMillion">$50.00</span>
+            </div>
+            <p class="calc-note">
+              This is division, nothing more. It says nothing about whether $HOODIE will ever reach any market cap.
+              Most meme tokens never do, and a large share end up effectively worthless. Do not use this number to decide
+              how much to spend.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tokenomics -->
+  <section class="tokenomics-section" id="tokenomics">
+    <div class="container">
+      <div class="section-badge-center">
+        <span>THE NUMBERS</span>
+      </div>
+      <h2 class="section-title text-center">Tokenomics</h2>
+      <p class="section-subtitle text-center">
+        Supply and distribution are set by the Pons protocol at launch. Values marked TBD are filled in here only after
+        deployment, and the authoritative source is always the on-chain contract.
+      </p>
+
+      <div class="tokenomics-grid">
+        <div class="tok-stat-card glass-panel">
+          <span class="tok-num" data-cfg="supply">TBD</span>
+          <span class="tok-label">Total Supply</span>
+          <p class="tok-info">Fixed at deployment by the Pons contract. Verify on-chain before trusting any figure.</p>
+        </div>
+
+        <div class="tok-stat-card glass-panel">
+          <span class="tok-num text-neon">0%</span>
+          <span class="tok-label">Pre-Sale, Team &amp; VC</span>
+          <p class="tok-info">Nothing is reserved. The entire supply enters circulation through the public bonding curve.</p>
+        </div>
+
+        <div class="tok-stat-card glass-panel">
+          <span class="tok-num text-gold" data-cfg="devBuy">TBD</span>
+          <span class="tok-label">Creator's Opening Buy</span>
+          <p class="tok-info">Bought from the curve at the same price as everyone else, and sellable like anyone else's tokens.</p>
+        </div>
+
+        <div class="tok-stat-card glass-panel">
+          <span class="tok-num" data-cfg="tax">2.0%</span>
+          <span class="tok-label">Creator Fee Per Trade</span>
+          <p class="tok-info">Paid by traders on each buy and sell, routed to the creator wallet by the Pons contract.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Buy Guide -->
+  <section class="guide-section" id="how-to-buy">
+    <div class="container">
+      <div class="section-badge-center">
+        <span>IF YOU DECIDE TO</span>
+      </div>
+      <h2 class="section-title text-center">How to Buy $HOODIE</h2>
+      <p class="section-subtitle text-center">Only with money you can afford to lose completely. Read the <a href="#risks" class="text-gold underline">risks</a> first.</p>
+
+      <div class="steps-grid">
+        <div class="step-card glass-panel">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Connect An EVM Wallet</h3>
+          <p class="step-desc">
+            Use a wallet you control, such as MetaMask or Rabby, and add the Robinhood Chain network to it.
+            Never share your seed phrase with anyone, including anyone claiming to represent this project.
+          </p>
+        </div>
+
+        <div class="step-card glass-panel">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Get ETH On Robinhood Chain</h3>
+          <p class="step-desc">
+            Bridge ETH to Robinhood Chain using the network's own official bridge. You will need a little extra for gas
+            on top of whatever you intend to trade.
+          </p>
+        </div>
+
+        <div class="step-card glass-panel">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Verify, Then Swap On Pons</h3>
+          <p class="step-desc">
+            Go to <a href="https://www.ponsfamily.com/launchpad" target="_blank" rel="noopener noreferrer" class="text-neon underline">ponsfamily.com/launchpad</a>,
+            match the contract address against the one shown above, and only then swap. Remember the
+            <strong data-cfg="tax">2.0%</strong> creator fee applies on the way in and on the way out.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Risk Disclosure -->
+  <section class="risk-section" id="risks">
+    <div class="container max-w-700">
+      <div class="section-badge-center">
+        <span>READ THIS PART</span>
+      </div>
+      <h2 class="section-title text-center">Risk Disclosure</h2>
+
+      <div class="glass-panel risk-panel">
+        <ul class="risk-list">
+          <li><strong>You can lose everything.</strong> The most common outcome for a meme token is that its price falls close to zero and stays there. Only spend what you are fully prepared to write off.</li>
+          <li><strong>There is no underlying business.</strong> $HOODIE has no revenue, no product, no assets and no cash flow. Its price is driven purely by what someone else is willing to pay.</li>
+          <li><strong>The creator earns from trading volume.</strong> The <span data-cfg="tax">2.0%</span> creator fee means the creator benefits when you trade, whether or not you make money. That is a real conflict of interest, and you should read everything on this site with it in mind.</li>
+          <li><strong>The creator can sell.</strong> Any tokens the creator buys from the curve can be sold at any time, like any other holder's.</li>
+          <li><strong>A locked LP is not a price guarantee.</strong> Locking the Uniswap V3 position prevents that pool from being pulled. It does not stop the price collapsing if holders sell.</li>
+          <li><strong>Bots and large holders can move the price.</strong> Low-liquidity tokens are easy to move. You may buy at a much worse effective price than you expect, and you may not be able to sell at the price you see.</li>
+          <li><strong>Smart contract risk.</strong> The Pons contracts, the chain, and any bridge you use could contain bugs or be exploited. This project has not commissioned a third-party audit.</li>
+          <li><strong>Impersonation risk.</strong> Anyone can deploy a token with this name and logo. Verify the contract address, and treat unsolicited DMs, airdrops and "support" accounts as hostile.</li>
+          <li><strong>Nothing here is advice.</strong> No one involved in this site is a licensed financial adviser, and none of this is personalised advice. Consider your own circumstances and the law where you live, and seek qualified advice if you need it.</li>
+          <li><strong>Regulation and tax.</strong> Crypto trading may be restricted, taxable, or both where you live. Checking that is your responsibility.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container max-w-700">
+      <div class="section-badge-center">
+        <span>CLEAR ANSWERS</span>
+      </div>
+      <h2 class="section-title text-center">Frequently Asked Questions</h2>
+
+      <div class="faq-accordion">
+        <div class="faq-item glass-panel">
+          <button class="faq-trigger">
+            <span>Is this an official Robinhood token?</span>
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-content">
+            <p>No. $HOODIE is an independent, fan-made meme token. It is not created, funded, reviewed, endorsed or supported by Robinhood Markets, Inc. or any of its subsidiaries. It runs on Robinhood Chain only in the sense that Robinhood Chain is a public network anyone can deploy a contract to. All Robinhood trademarks belong to their owner.</p>
+          </div>
+        </div>
+
+        <div class="faq-item glass-panel">
+          <button class="faq-trigger">
+            <span>How does Pons graduation work?</span>
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-content">
+            <p>Pons uses a bonding curve: the price is set by a formula, rising as tokens are bought and falling as they are sold. If cumulative net buying reaches the platform's graduation threshold, Pons moves the accumulated liquidity into a Uniswap V3 pool and locks the LP position. Many tokens never reach that threshold. For exact thresholds and fees, read <a href="https://docs.ponsfamily.com" target="_blank" rel="noopener noreferrer" class="text-neon underline">Pons' own documentation</a> rather than relying on this page.</p>
+          </div>
+        </div>
+
+        <div class="faq-item glass-panel">
+          <button class="faq-trigger">
+            <span>Why is there a creator fee, and who gets it?</span>
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-content">
+            <p>Pons lets a token creator set a fee that is charged on trades and paid to the creator's wallet. For $HOODIE it is set to <span data-cfg="tax">2.0%</span>, and it goes to the creator. That is lower than the maximum the platform allows, but it is still a real cost you pay on both the buy and the sell. It also means the creator's income depends on trading activity rather than on the price going up — a conflict of interest you should weigh.</p>
+          </div>
+        </div>
+
+        <div class="faq-item glass-panel">
+          <button class="faq-trigger">
+            <span>Can the developer rug-pull the liquidity?</span>
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-content">
+            <p>The bonding curve reserves are held by the Pons contract, not by the creator, and the Uniswap V3 LP position is locked at graduation — so the creator cannot withdraw that pool. That removes one specific failure mode. It does not make the token safe. The creator can still sell any tokens they hold, large holders can dump, the price can collapse, and the Pons contracts themselves could have bugs. "Locked liquidity" and "safe" are not the same thing, and anyone telling you otherwise is selling something.</p>
+          </div>
+        </div>
+
+        <div class="faq-item glass-panel">
+          <button class="faq-trigger">
+            <span>Will $HOODIE go up?</span>
+            <span class="faq-chevron">+</span>
+          </button>
+          <div class="faq-content">
+            <p>Nobody knows, and anyone who claims to is lying. There is no price target anywhere on this site for that reason. Historically, the large majority of meme tokens lose most of their value within weeks. Assume that is the base case.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <img src="assets/logo.jpg" alt="Hoodie Logo" class="brand-avatar" />
+            <span class="brand-text">HOODIE</span>
+          </div>
+          <p class="footer-tagline">
+            An independent community meme token on Robinhood Chain. A joke with a contract address.
+          </p>
+        </div>
+
+        <div class="footer-links-group">
+          <div class="f-col">
+            <h4>Launchpad</h4>
+            <a href="https://www.ponsfamily.com/launchpad" target="_blank" rel="noopener noreferrer">Pons Launchpad</a>
+            <a href="https://docs.ponsfamily.com" target="_blank" rel="noopener noreferrer">Pons Docs</a>
+          </div>
+          <div class="f-col" id="communityCol">
+            <h4>Community</h4>
+            <a href="#" target="_blank" rel="noopener noreferrer" id="footerXLink" hidden>X (Twitter)</a>
+            <a href="#" target="_blank" rel="noopener noreferrer" id="footerTgLink" hidden>Telegram</a>
+            <span class="f-empty" id="communityEmpty">Channels not open yet</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="disclaimer">
+          <strong>Disclaimer:</strong> $HOODIE is a meme token created for entertainment. It is not an investment product,
+          a security, or a claim on anything. Nothing on this site is financial, legal or tax advice, and none of it is a
+          recommendation to buy or sell. Cryptocurrency trading carries a high risk of total loss. The creator receives a
+          fee on every trade and therefore benefits from trading activity regardless of your outcome. Do your own research,
+          and never spend more than you can afford to lose.
+        </p>
+        <p class="disclaimer">
+          <strong>Trademarks:</strong> "Robinhood" and related marks are the property of Robinhood Markets, Inc.
+          This project is independent and is not affiliated with, sponsored by, or endorsed by Robinhood Markets, Inc.
+          References to Robinhood Chain describe the public network the token is deployed on, nothing more.
+        </p>
+        <p class="copyright">© 2026 $HOODIE community project. Launched via Pons Launchpad.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
